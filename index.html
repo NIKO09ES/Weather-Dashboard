@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    </nav>
+    <div class="row">
+        <div class="search col-md-3">
+            <h2>Search for City:</h2>
+            <form id="form-city" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="city">
+                <button id="btn-city" class="btn my-2 my-sm-0" type="submit"><span class="oi oi-magnifying-glass"></span></button>
+            </form>
+            <div id="list-city" class="list-group"></div>
+        </div>
+        <div class="col-md-9" id="weather-card">
+        </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
