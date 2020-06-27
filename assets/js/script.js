@@ -5,6 +5,9 @@ var addCityEl = document.getElementById('list-city');
 var addTempEl = document.getElementById('temp');
 var forecastTitelEl = document.getElementById('forecast');
 var cardDayEl = document.getElementById('daycards');
+var cityBtnEl = document.getElementById('new-btn');
+
+
 
 
 var formWeather = function (event) {
@@ -25,14 +28,20 @@ var formWeather = function (event) {
 
 var listCity = function (city) {
     var createCityEl = document.createElement('a');
-    createCityEl.className = "list-group-item list-group-item-action"
+    createCityEl.className = "list-group-item list-group-item-action";
+    createCityEl.setAttribute("href", "#");
+    createCityEl.setAttribute("id", "new-btn");
     createCityEl.textContent = city;
 
     addCityEl.appendChild(createCityEl);
 
     getCity(city);
+    
 }
-
+var historyCity = function() {
+    getCity(event.target.innerText);
+    console.log(event.target.innerText);
+}
 
 var getCity = function (city) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c6ee42eed2ff19934f4074a3340902d5";
@@ -43,6 +52,8 @@ var getCity = function (city) {
         .then(function (response) {
             // request was successful
             if (response.ok) {
+                cardWeatherEl.innerHTML = '';
+                addTempEl.innerHTML = '';
                 response.json().then(function (data) {
                     // console.log(data)
                     displayWeather(data);
@@ -54,6 +65,8 @@ var getCity = function (city) {
 
     fetch(apiForecast)
         .then(function (response) {
+            forecastTitelEl.innerHTML = '';
+            cardDayEl.innerHTML = '';
             // request was successful
             if (response.ok) {
                 response.json().then(function (data) {
@@ -75,7 +88,7 @@ var displayWeather = function (data) {
     tempEl.textContent = 'Temperature: ' + data.main.temp + ' °F';
 
     var humidityEl = document.createElement('p');
-    humidityEl.textContent = 'Humidity' + data.main.humidity + '%';
+    humidityEl.textContent = 'Humidity: ' + data.main.humidity + '%';
 
 
     var speedEl = document.createElement('p');
@@ -98,7 +111,7 @@ var displayWeather = function (data) {
 
                     var uvEl = document.createElement('p');
                     var indexEl = document.createElement('span');
-                    
+
                     if (dataUV.value < 3) {
                         indexEl.className = 'bajo';
                     } else if (dataUV.value < 5) {
@@ -113,7 +126,7 @@ var displayWeather = function (data) {
 
                     uvEl.textContent = 'UV Index:';
                     indexEl.textContent = dataUV.value;
-                                       
+
                     addTempEl.appendChild(uvEl);
                     uvEl.appendChild(indexEl);
                 })
@@ -166,4 +179,6 @@ var getForecast = function (data) {
 
     forecastTitelEl.appendChild(titleForecastEl);
 }
+
 citySearchEl.addEventListener("click", formWeather)
+addCityEl.addEventListener("click", historyCity)
