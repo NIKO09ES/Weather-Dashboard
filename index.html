@@ -9,25 +9,39 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
-    </nav>
-    <div class="row">
-        <div class="search col-md-3">
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main class="row">
+
+        <div class="search col-lg-3">
             <h2>Search for City:</h2>
             <form id="form-city" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="city">
-                <button id="btn-city" class="btn my-2 my-sm-0" type="submit"><span class="oi oi-magnifying-glass"></span></button>
+                <button id="btn-city" class="btn my-2 my-sm-0" type="submit"><span
+                        class="oi oi-magnifying-glass"></span></button>
             </form>
+            <!-- create city search list -->
             <div id="list-city" class="list-group"></div>
+
         </div>
-        <div class="col-md-9" id="weather-card">
+        <!-- create weather card -->
+        <div class="col-lg-7">
+            <div class="card">
+                <div id="weather-card"></div>
+                <ul id="temp"></ul>
+            </div>
+            <div>
+                <div id="forecast"></div>
+                <ul id="daycards" class="list-group  list-group-horizontal"></ul>
+            </div>
         </div>
-    </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
