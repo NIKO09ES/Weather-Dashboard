@@ -38,7 +38,7 @@ h1 {
     display: flex;
     transform: translate(280px, -42px);
 }
-
+/* star style for weather displays */
 h3 {
    color: white;
    font-size: 20px;

@@ -9,7 +9,7 @@ var cityBtnEl = document.getElementById('new-btn');
 
 
 
-
+// take the city name variable
 var formWeather = function (event) {
     event.preventDefault();
 
@@ -25,7 +25,7 @@ var formWeather = function (event) {
     }
 
 };
-
+// create the city list function
 var listCity = function (city) {
     var createCityEl = document.createElement('a');
     createCityEl.className = "list-group-item list-group-item-action";
@@ -38,11 +38,12 @@ var listCity = function (city) {
     getCity(city);
     
 }
+// start all the functions when the user clicked any history city
 var historyCity = function() {
     getCity(event.target.innerText);
     console.log(event.target.innerText);
 }
-
+// function with the api and fetch for take the responses
 var getCity = function (city) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c6ee42eed2ff19934f4074a3340902d5";
 
@@ -77,7 +78,7 @@ var getCity = function (city) {
             };
         });
 };
-
+// function to creted the display weather for today
 var displayWeather = function (data) {
 
     var iconEl = document.createElement('img');
@@ -141,7 +142,7 @@ var displayWeather = function (data) {
     addTempEl.appendChild(speedEl);
 
 }
-
+// function to creted the display weather for 5 days
 var getForecast = function (data) {
     // console.log(data)
     var titleForecastEl = document.createElement('h2');
